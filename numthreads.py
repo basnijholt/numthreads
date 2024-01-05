@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from collections.abc import Generator
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 THREAD_CONTROL_ENV_VARS = [
     "OPENBLAS_NUM_THREADS",  # OpenBLAS
