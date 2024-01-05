@@ -29,6 +29,10 @@ def set_num_threads(n: int = 1) -> None:
         os.environ[var] = str(n)
 
 
+# Function alias
+set = set_num_threads  # noqa: A001
+
+
 @contextlib.contextmanager
 def num_threads(n: int = 1) -> Generator[None, None, None]:
     """Context manager to set and then restore thread number settings."""
@@ -76,6 +80,7 @@ def omp_set_num_threads(num_threads: int) -> None:
         Number of threads to set.
     """
     omp_lib = _load_omp_library()
+    omp_lib.omp_set_num_threads.argtypes = [ctypes.c_int]
     omp_lib.omp_set_num_threads(num_threads)
 
 
