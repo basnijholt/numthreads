@@ -1,5 +1,8 @@
 # 🔌 API documentation
 
-```{toctree}
-numthreads
+```{eval-rst}
+.. automodule:: numthreads
+    :members:
+    :undoc-members:
+    :show-inheritance:
 ```
