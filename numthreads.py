@@ -109,6 +109,32 @@ def omp_get_num_threads() -> int:
     return omp_lib.omp_get_num_threads()
 
 
+@contextlib.contextmanager
+def omp_num_threads(num_threads: int) -> Generator[None, None, None]:
+    """Context manager to set and then restore OpenMP thread number settings.
+
+    Parameters
+    ----------
+    num_threads
+        Number of threads to set in the OpenMP parallel regions.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from numthreads import omp_num_threads
+    >>> with omp_num_threads(2):
+    ...     np.ones(10)
+    array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+    """
+    original_num_threads = omp_get_num_threads()
+    omp_set_num_threads(num_threads)
+
+    try:
+        yield
+    finally:
+        omp_set_num_threads(original_num_threads)
+
+
 def main() -> None:  # pragma: no cover
     """Command-line interface."""
     description = (
