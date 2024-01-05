@@ -22,7 +22,6 @@ This Python-based utility aids in optimizing the performance of numerical and sc
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [:sparkles: Features](#sparkles-features)
 - [:package: Installation](#package-installation)
 - [:rocket: Quick Start](#rocket-quick-start)
   - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
