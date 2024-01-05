@@ -46,7 +46,7 @@ pip install "numthreads"
 
 ## :rocket: Quick Start
 
-After installing `numthreads`, you can easily set the number of threads used by supported libraries via the command line. For example, to set the number of threads to 4, run:
+After installing `numthreads`, you can easily set the number of threads used by supported libraries via the command line. For example, to print the command to set the number of threads to 4, run:
 
 ```bash
 numthreads 4
