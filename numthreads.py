@@ -32,6 +32,12 @@ def set_num_threads(n: int = 1) -> None:
     - ``"OMP_NUM_THREADS"`` for OMP (OpenMP)
     - ``"NUMEXPR_NUM_THREADS"`` for NumExpr (NumPy expression evaluator)
     - ``"VECLIB_MAXIMUM_THREADS"`` for Accelerate (macOS)
+
+    Note that setting these environment variables typically needs to be done before
+    importing the relevant libraries. For example, if you want to set the number of
+    threads for NumPy, you should set the environment variables before importing
+    NumPy. When using OMP (OpenMP), you can use the ``omp_set_num_threads`` function
+    to change the number of threads *after* importing the library.
     """
     for var in THREAD_CONTROL_ENV_VARS:
         os.environ[var] = str(n)
@@ -81,6 +87,10 @@ def _load_omp_library() -> ctypes.CDLL:
 
 def omp_set_num_threads(num_threads: int) -> None:
     """Sets the number of threads to be used by OpenMP parallel regions.
+
+    When using OMP (OpenMP), you can use this function to change the number of threads
+    *after* importing the library. This overrides whatever value is set in the
+    ``"OMP_NUM_THREADS"`` environment variable.
 
     Parameters
     ----------
