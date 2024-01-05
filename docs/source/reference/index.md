@@ -1,0 +1,5 @@
+# 🔌 API documentation
+
+```{toctree}
+numthreads
+```
