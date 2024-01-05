@@ -24,7 +24,15 @@ THREAD_CONTROL_ENV_VARS = [
 
 
 def set_num_threads(n: int = 1) -> None:
-    """Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, and Accelerate."""
+    """Set the number of threads via environment variables.
+
+    Sets:
+    - ``"OPENBLAS_NUM_THREADS"`` for OpenBLAS (Open Basic Linear Algebra Subprograms)
+    - ``"MKL_NUM_THREADS"`` for MKL (Intel Math Kernel Library)
+    - ``"OMP_NUM_THREADS"`` for OMP (OpenMP)
+    - ``"NUMEXPR_NUM_THREADS"`` for NumExpr (NumPy expression evaluator)
+    - ``"VECLIB_MAXIMUM_THREADS"`` for Accelerate (macOS)
+    """
     for var in THREAD_CONTROL_ENV_VARS:
         os.environ[var] = str(n)
 
