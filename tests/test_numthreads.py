@@ -6,6 +6,7 @@ import pytest
 from numthreads import (
     num_threads,
     omp_get_num_threads,
+    omp_num_threads,
     omp_set_num_threads,
     set_num_threads,
 )
@@ -67,3 +68,14 @@ def test_omp_set_get_num_threads() -> None:
 
     omp_set_num_threads(1)
     assert omp_get_num_threads() == 1
+
+
+@pytest.mark.skipif(
+    os.name != "posix",
+    reason="OMP functions are tested only on POSIX systems",
+)
+def test_omp_num_threads() -> None:
+    with omp_num_threads(4):
+        # Now this will fail: assert omp_get_num_threads() == 4
+        # because we need to call this in a parallel region.
+        pass
