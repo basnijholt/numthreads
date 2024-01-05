@@ -1,6 +1,7 @@
-# numthreads - Set the number of threads used by OpenBLAS, MKL, OMP, NumExpr, and Accelerate
+<img src="https://media.githubusercontent.com/media/basnijholt/nijho.lt/3986f45bae9ea4e834486eab4f7f6963d980c7b6/content/project/numthreads/featured.png" align="right" style="width: 200px;" />
 
-![numthreads logo](https://media.githubusercontent.com/media/basnijholt/nijho.lt/3986f45bae9ea4e834486eab4f7f6963d980c7b6/content/project/numthreads/featured.png)
+<h1 align="center">numthreads</h1>
+<h3 align="center">Set the number of threads used by OpenBLAS, MKL, OMP, NumExpr, and Accelerate</h3>
 
 [![PyPI](https://img.shields.io/pypi/v/numthreads.svg)](https://pypi.python.org/pypi/numthreads)
 [![Build Status](https://github.com/basnijholt/numthreads/actions/workflows/pytest.yml/badge.svg)](https://github.com/basnijholt/numthreads/actions/workflows/pytest.yml)
