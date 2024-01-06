@@ -46,7 +46,7 @@ Therefore, it's important to be able to easily set the number of threads used by
 To install `numthreads`, run the following command:
 
 ```bash
-pip install "numthreads"
+pip install numthreads
 ```
 
 ## :rocket: Quick Start
