@@ -31,7 +31,7 @@ Therefore, it's important to be able to easily set the number of threads used by
 
 - [:package: Installation](#package-installation)
 - [:rocket: Quick Start](#rocket-quick-start)
-- [Using as a Python Module](#using-as-a-python-module)
+  - [Using as a Python Module](#using-as-a-python-module)
   - [Command Line Interface](#command-line-interface)
     - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
     - [Windows (PowerShell)](#windows-powershell)
@@ -54,7 +54,7 @@ pip install numthreads
 
 Get started with `numthreads` in a few seconds.
 
-## Using as a Python Module
+### Using as a Python Module
 
 You can also use `numthreads` as a Python module:
 
