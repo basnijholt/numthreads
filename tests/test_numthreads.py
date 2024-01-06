@@ -8,6 +8,7 @@ from numthreads import (
     omp_get_num_threads,
     omp_num_threads,
     omp_set_num_threads,
+    print_current_thread_counts,
     set_num_threads,
 )
 
@@ -79,3 +80,9 @@ def test_omp_num_threads() -> None:
         # Now this will fail: assert omp_get_num_threads() == 4
         # because we need to call this in a parallel region.
         pass
+
+
+def test_print_current_thread_counts(capsys: pytest.CaptureFixture) -> None:
+    set_num_threads(4)
+    print_current_thread_counts()
+    assert "OPENBLAS_NUM_THREADS: 4" in capsys.readouterr().out
