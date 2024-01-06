@@ -33,8 +33,9 @@ Therefore, it's important to be able to easily set the number of threads used by
 - [:rocket: Quick Start](#rocket-quick-start)
 - [Using as a Python Module](#using-as-a-python-module)
   - [Command Line Interface](#command-line-interface)
-  - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
-  - [Windows (PowerShell)](#windows-powershell)
+    - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
+    - [Windows (PowerShell)](#windows-powershell)
+  - [Get the number of threads](#get-the-number-of-threads)
 - [:question: Getting Help](#question-getting-help)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
