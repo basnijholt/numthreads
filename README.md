@@ -166,11 +166,8 @@ VECLIB_MAXIMUM_THREADS: 12
 
 <!-- OUTPUT:END -->
 
-Check the help message for more information:
+Check the `numthreads -h` message for more information:
 
-```bash
-numthreads -h
-```
 <!-- CODE:BASH:START -->
 <!-- echo '```bash' -->
 <!-- numthreads -h -->
