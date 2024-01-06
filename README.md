@@ -82,12 +82,39 @@ from numthreads import set_num_threads
 set_num_threads(4)
 ```
 
-or
+This will set the number of threads using the following environment variables:
+- OpenBLAS (via `OPENBLAS_NUM_THREADS`)
+- MKL (via `MKL_NUM_THREADS`)
+- OpenMP (via `OMP_NUM_THREADS`)
+- NumExpr (via `NUMEXPR_NUM_THREADS`)
+- Accelerate (via `VECLIB_MAXIMUM_THREADS`)
+
+or use it as a context manager:
 
 ```python
 from numthreads import num_threads
 
 with num_threads(4):
+    # Your code here will run with the specified number of threads
+    pass
+```
+
+Since environment variables are global and typically need to be set before importing any libraries, it's recommended to set the number of threads at the beginning of your Python script.
+
+To set OMP (OpenMP) threads at any time, you can use `omp_set_num_threads` or the `omp_num_threads` context manager:
+
+```python
+from numthreads import omp_set_num_threads
+
+omp_set_num_threads(4)
+```
+
+or
+
+```python
+from numthreads import omp_num_threads
+
+with omp_num_threads(4):
     # Your code here will run with the specified number of threads
     pass
 ```
