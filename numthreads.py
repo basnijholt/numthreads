@@ -157,8 +157,7 @@ def main() -> None:  # pragma: no cover
     )
     parser.add_argument(
         "n",
-        help="Number of threads to set or use 'get' to"
-        " display current settings or a number to set threads.",
+        help="Number of threads to set or use 'get' to display current settings.",
     )
     args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
 
