@@ -105,9 +105,13 @@ with omp_num_threads(4):
 
 After installing `numthreads`, you can easily set the number of threads used by supported libraries via the command line. For example, to print the command to set the number of threads to 4, run:
 
-```bash
-numthreads 4
-```
+<!-- CODE:BASH:START -->
+<!-- echo '```bash' -->
+<!-- numthreads 4 -->
+<!-- echo '```' -->
+<!-- CODE:END -->
+<!-- OUTPUT:START -->
+<!-- OUTPUT:END -->
 
 ### Unix-like Systems (Linux, macOS, WSL)
 
