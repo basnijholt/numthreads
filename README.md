@@ -50,29 +50,7 @@ pip install "numthreads"
 
 ## :rocket: Quick Start
 
-After installing `numthreads`, you can easily set the number of threads used by supported libraries via the command line. For example, to print the command to set the number of threads to 4, run:
-
-```bash
-numthreads 4
-```
-
-### Unix-like Systems (Linux, macOS, WSL)
-
-To apply the settings in your shell:
-
-```bash
-eval $(numthreads <number_of_threads>)
-```
-
-### Windows (PowerShell)
-
-In PowerShell, use:
-
-```powershell
-Invoke-Expression $(numthreads <number_of_threads>)
-```
-
-### Using as a Python Module
+## Using as a Python Module
 
 You can also use `numthreads` as a Python module:
 
@@ -118,6 +96,31 @@ with omp_num_threads(4):
     # Your code here will run with the specified number of threads
     pass
 ```
+
+### Command Line Interface
+
+After installing `numthreads`, you can easily set the number of threads used by supported libraries via the command line. For example, to print the command to set the number of threads to 4, run:
+
+```bash
+numthreads 4
+```
+
+### Unix-like Systems (Linux, macOS, WSL)
+
+To apply the settings in your shell:
+
+```bash
+eval $(numthreads <number_of_threads>)
+```
+
+### Windows (PowerShell)
+
+In PowerShell, use:
+
+```powershell
+Invoke-Expression $(numthreads <number_of_threads>)
+```
+
 
 ## :question: Getting Help
 
