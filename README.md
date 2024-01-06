@@ -31,9 +31,10 @@ Therefore, it's important to be able to easily set the number of threads used by
 
 - [:package: Installation](#package-installation)
 - [:rocket: Quick Start](#rocket-quick-start)
+- [Using as a Python Module](#using-as-a-python-module)
+  - [Command Line Interface](#command-line-interface)
   - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
   - [Windows (PowerShell)](#windows-powershell)
-  - [Using as a Python Module](#using-as-a-python-module)
 - [:question: Getting Help](#question-getting-help)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
