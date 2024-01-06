@@ -135,6 +135,13 @@ def omp_num_threads(num_threads: int) -> Generator[None, None, None]:
         omp_set_num_threads(original_num_threads)
 
 
+def print_current_thread_counts() -> None:
+    """Prints the current values of the thread control environment variables."""
+    for var in THREAD_CONTROL_ENV_VARS:
+        value = os.environ.get(var, "Not set")
+        print(f"{var}: {value}")
+
+
 def main() -> None:  # pragma: no cover
     """Command-line interface."""
     description = (
@@ -149,12 +156,16 @@ def main() -> None:  # pragma: no cover
     )
     parser.add_argument(
         "n",
-        type=int,
-        help="Number of threads to set.",
+        help="Number of threads to set or use 'get' to"
+        " display current settings or a number to set threads.",
     )
     args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
 
-    n = args.n
+    if args.n == "get":
+        print_current_thread_counts()
+        return
+
+    n = int(args.n)
     system = platform.system()
     if system == "Windows":
         export_commands = " & ".join(
