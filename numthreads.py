@@ -26,7 +26,7 @@ THREAD_CONTROL_ENV_VARS = [
 def set_num_threads(n: int = 1) -> None:
     """Set the number of threads via environment variables.
 
-    Sets:
+    Sets the following environment variables:
 
     - ``"OPENBLAS_NUM_THREADS"`` for OpenBLAS (Open Basic Linear Algebra Subprograms)
     - ``"MKL_NUM_THREADS"`` for MKL (Intel Math Kernel Library)
