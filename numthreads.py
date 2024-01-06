@@ -158,12 +158,12 @@ def main() -> None:  # pragma: no cover
     system = platform.system()
     if system == "Windows":
         export_commands = " & ".join(
-            f"$env:{var}={n}" for var in THREAD_CONTROL_ENV_VARS
+            f"$env:{var}='{n}'" for var in THREAD_CONTROL_ENV_VARS
         )
         print(f'powershell.exe -Command "{export_commands}"')
     else:
         export_commands = " ; ".join(
-            f"export {var}={n}" for var in THREAD_CONTROL_ENV_VARS
+            f"export {var}='{n}'" for var in THREAD_CONTROL_ENV_VARS
         )
         print(export_commands)
 
