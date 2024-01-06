@@ -51,6 +51,8 @@ pip install numthreads
 
 ## :rocket: Quick Start
 
+Get started with `numthreads` in a few seconds.
+
 ## Using as a Python Module
 
 You can also use `numthreads` as a Python module:
