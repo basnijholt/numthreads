@@ -186,7 +186,7 @@ $(numthreads <number>)`.
 
 positional arguments:
   n           Number of threads to set or use 'get' to display current
-              settings or a number to set threads.
+              settings.
 
 options:
   -h, --help  show this help message and exit
