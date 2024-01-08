@@ -84,7 +84,7 @@ with num_threads(4):
 > [!WARNING]
 > Since environment variables are global and typically need to be set before importing any libraries, it's recommended to set the number of threads at the beginning of your Python script.
 
-To set OMP (OpenMP) threads at any time, you can use `omp_set_num_threads` or the `omp_num_threads` context manager:
+To set OMP (OpenMP) threads at any time ([OpenMP docs](https://www.openmp.org/spec-html/5.0/openmpsu110.html)), you can use `omp_set_num_threads` or the `omp_num_threads` context manager:
 
 ```python
 from numthreads import omp_set_num_threads
