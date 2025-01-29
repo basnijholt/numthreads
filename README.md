@@ -36,6 +36,7 @@ Therefore, it's important to be able to easily set the number of threads used by
     - [Unix-like Systems (Linux, macOS, WSL)](#unix-like-systems-linux-macos-wsl)
     - [Windows (PowerShell)](#windows-powershell)
   - [Get the number of threads](#get-the-number-of-threads)
+  - [:electric_plug: Using as a pytest Plugin](#electric_plug-using-as-a-pytest-plugin)
 - [:question: Getting Help](#question-getting-help)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
