@@ -52,10 +52,8 @@ def set_num_threads(n: int = 1, *, overwrite: bool = True) -> None:
 
     """
     for var in THREAD_CONTROL_ENV_VARS:
-        if overwrite:
+        if overwrite or var not in os.environ:
             os.environ[var] = str(n)
-        else:
-            os.environ.setdefault(var, str(n))
 
 
 # Function alias
