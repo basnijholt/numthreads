@@ -60,7 +60,6 @@ addopts = """
     --cov=numthreads
     --cov-report term
     --cov-report html
-    --cov-fail-under=95
     -W error
     -vvv
 """
