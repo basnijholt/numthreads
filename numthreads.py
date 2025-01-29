@@ -201,7 +201,7 @@ def main() -> None:  # pragma: no cover
 
 
 # Pytest Plugin Integration
-def pytest_addoption(parser: pytest.Parser) -> None:
+def pytest_addoption(parser: pytest.Parser) -> None:  # pragma: no cover
     """Add the --numthreads option to the pytest command line."""
     parser.addoption(
         "--numthreads",
@@ -212,7 +212,7 @@ def pytest_addoption(parser: pytest.Parser) -> None:
     )
 
 
-def pytest_configure(config: pytest.Config) -> None:
+def pytest_configure(config: pytest.Config) -> None:  # pragma: no cover
     """Set the number of threads based on the --numthreads option."""
     numthreads = config.getoption("--numthreads")
     if numthreads is not None:
