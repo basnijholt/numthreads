@@ -209,7 +209,7 @@ options:
 To use it, make sure `numthreads` is installed. Then, run pytest with the `--numthreads` option followed by the desired number of threads:
 
 ```bash
-pytest --numthreads 4
+pytest --numthreads 1
 ```
 
 This will set the number of threads for OpenBLAS, MKL, OMP, NumExpr, and Accelerate before running your tests.
