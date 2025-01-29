@@ -36,6 +36,9 @@ test = [
 [project.scripts]
 numthreads = "numthreads:main"
 
+[project.entry-points.pytest11]
+numthreads = "numthreads"
+
 [tool.setuptools]
 py-modules = ["numthreads"]
 

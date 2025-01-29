@@ -1,4 +1,5 @@
 """numthreads: Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, and Accelerate."""  # noqa: E501
+
 from __future__ import annotations
 
 import argparse
@@ -11,6 +12,8 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Generator
+
+    import pytest
 
 __version__ = "0.4.0"
 
@@ -177,6 +180,25 @@ def main() -> None:  # pragma: no cover
             f"export {var}='{n}'" for var in THREAD_CONTROL_ENV_VARS
         )
         print(export_commands)
+
+
+# Pytest Plugin Integration
+def pytest_addoption(parser: pytest.Parser) -> None:
+    """Add the --numthreads option to the pytest command line."""
+    parser.addoption(
+        "--numthreads",
+        action="store",
+        default=None,  # Default to None, so we don't set unnecessarily
+        type=int,
+        help="Number of threads to set for OpenBLAS, MKL, OMP, NumExpr, and Accelerate",
+    )
+
+
+def pytest_configure(config: pytest.Config) -> None:
+    """Set the number of threads based on the --numthreads option."""
+    numthreads = config.getoption("--numthreads")
+    if numthreads is not None:
+        set_num_threads(numthreads)
 
 
 if __name__ == "__main__":
