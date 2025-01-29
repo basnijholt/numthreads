@@ -23,7 +23,7 @@ THREAD_CONTROL_ENV_VARS = [
 ]
 
 
-def set_num_threads(n: int = 1) -> None:
+def set_num_threads(n: int = 1, *, overwrite: bool = True) -> None:
     """Set the number of threads via environment variables.
 
     Sets the following environment variables:
@@ -39,9 +39,20 @@ def set_num_threads(n: int = 1) -> None:
     threads for NumPy, you should set the environment variables before importing
     NumPy. When using OMP (OpenMP), you can use the ``omp_set_num_threads`` function
     to change the number of threads *after* importing the library.
+
+    Parameters
+    ----------
+    n
+        Number of threads to set.
+    overwrite
+        If true, overwrite the existing value.
+
     """
     for var in THREAD_CONTROL_ENV_VARS:
-        os.environ[var] = str(n)
+        if overwrite:
+            os.environ[var] = str(n)
+        else:
+            os.environ.setdefault(var, str(n))
 
 
 # Function alias
@@ -49,11 +60,11 @@ set = set_num_threads  # noqa: A001
 
 
 @contextlib.contextmanager
-def num_threads(n: int = 1) -> Generator[None, None, None]:
+def num_threads(n: int = 1, *, overwrite: bool = True) -> Generator[None, None, None]:
     """Context manager to set and then restore thread number settings."""
     original_settings = {var: os.environ.get(var) for var in THREAD_CONTROL_ENV_VARS}
 
-    set_num_threads(n)
+    set_num_threads(n, overwrite=overwrite)
 
     try:
         yield
@@ -86,7 +97,7 @@ def _load_omp_library() -> ctypes.CDLL:
         raise OSError(msg) from e
 
 
-def omp_set_num_threads(num_threads: int) -> None:
+def omp_set_num_threads(num_threads: int, *, overwrite: bool = True) -> None:
     """Sets the number of threads to be used by OpenMP parallel regions.
 
     When using OMP (OpenMP), you can use this function to change the number of threads
@@ -97,10 +108,13 @@ def omp_set_num_threads(num_threads: int) -> None:
     ----------
     num_threads
         Number of threads to set.
+    overwrite
+        If true, overwrite the existing value.
     """
-    omp_lib = _load_omp_library()
-    omp_lib.omp_set_num_threads.argtypes = [ctypes.c_int]
-    omp_lib.omp_set_num_threads(num_threads)
+    if overwrite:
+        omp_lib = _load_omp_library()
+        omp_lib.omp_set_num_threads.argtypes = [ctypes.c_int]
+        omp_lib.omp_set_num_threads(num_threads)
 
 
 def omp_get_num_threads() -> int:
@@ -111,13 +125,19 @@ def omp_get_num_threads() -> int:
 
 
 @contextlib.contextmanager
-def omp_num_threads(num_threads: int) -> Generator[None, None, None]:
+def omp_num_threads(
+    num_threads: int,
+    *,
+    overwrite: bool = True,
+) -> Generator[None, None, None]:
     """Context manager to set and then restore OpenMP thread number settings.
 
     Parameters
     ----------
     num_threads
         Number of threads to set in the OpenMP parallel regions.
+    overwrite
+        Whether to overwrite existing values.
 
     Examples
     --------
@@ -128,7 +148,7 @@ def omp_num_threads(num_threads: int) -> Generator[None, None, None]:
     array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
     """
     original_num_threads = omp_get_num_threads()
-    omp_set_num_threads(num_threads)
+    omp_set_num_threads(num_threads, overwrite=overwrite)
 
     try:
         yield
