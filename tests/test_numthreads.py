@@ -12,25 +12,27 @@ from numthreads import (
     set_num_threads,
 )
 
+
 @pytest.mark.parametrize("overwrite", [True, False])
-def test_set_num_threads(overwrite: bool) -> None:
-    vars = [
+def test_set_num_threads(overwrite: bool) -> None:  # noqa: FBT001
+    envvars = [
         "OPENBLAS_NUM_THREADS",
         "MKL_NUM_THREADS",
         "OMP_NUM_THREADS",
         "NUMEXPR_NUM_THREADS",
         "VECLIB_MAXIMUM_THREADS",
     ]
-    prev_values = {var: os.environ.get(var) for var in vars}
+    prev_values = {var: os.environ.get(var) for var in envvars}
     set_num_threads(4, overwrite=overwrite)
-    for var in vars:
+    for var in envvars:
         if overwrite:
             assert os.environ.get(var) == "4"
         else:
             assert os.environ.get(var) == prev_values[var]
 
+
 @pytest.mark.parametrize("overwrite", [True, False])
-def test_num_threads_context_manager(overwrite: bool) -> None:
+def test_num_threads_context_manager(overwrite: bool) -> None:  # noqa: FBT001
     original_values = {
         var: os.environ.get(var)
         for var in [
@@ -70,7 +72,7 @@ def test_num_threads_context_manager(overwrite: bool) -> None:
     reason="OMP functions are tested only on POSIX systems",
 )
 @pytest.mark.parametrize("overwrite", [True, False])
-def test_omp_set_get_num_threads(overwrite: bool) -> None:
+def test_omp_set_get_num_threads(overwrite: bool) -> None:  # noqa: FBT001
     omp_set_num_threads(4, overwrite=overwrite)
 
     # Now this will fail: assert omp_get_num_threads() == 4
