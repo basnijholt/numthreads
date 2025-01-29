@@ -209,13 +209,7 @@ options:
 
 `numthreads` can be used as a pytest plugin to automatically set the number of threads for your tests.
 
-To use it, install `numthreads` in your testing environment (e.g., your virtual environment):
-
-```bash
-pip install numthreads
-```
-
-Then, run pytest with the `--numthreads` option followed by the desired number of threads:
+To use it, make sure `numthreads` is installed. Then, run pytest with the `--numthreads` option followed by the desired number of threads:
 
 ```bash
 pytest --numthreads 4
