@@ -62,6 +62,7 @@ addopts = """
     --cov-report html
     -W error
     -vvv
+    -p no:numthreads
 """
 
 [tool.coverage.run]
