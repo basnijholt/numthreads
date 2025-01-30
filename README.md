@@ -20,6 +20,7 @@ Therefore, it's important to be able to easily set the number of threads used by
 - Sets thread count for OpenBLAS, MKL, OpenMP, NumExpr, and Accelerate.
 - Context manager support for temporary thread setting in Python code.
 - Cross-platform compatibility (Linux, macOS, Windows).
+- Use as pytest plugin
 - Tiny (≤7KB) and no dependencies.
 
 <!-- toc-start -->
