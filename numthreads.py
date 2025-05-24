@@ -1,4 +1,4 @@
-"""numthreads: Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, Accelerate, and Numba"""  # noqa: E501
+"""numthreads: Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, Accelerate, and Numba."""  # noqa: E501
 
 from __future__ import annotations
 
