@@ -1,4 +1,4 @@
-"""numthreads: Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, and Accelerate."""  # noqa: E501
+"""numthreads: Set the number of threads for OpenBLAS, MKL, OMP, NumExpr, Accelerate, and Numba."""  # noqa: E501
 
 from __future__ import annotations
 
@@ -23,6 +23,7 @@ THREAD_CONTROL_ENV_VARS = [
     "OMP_NUM_THREADS",  # OMP
     "NUMEXPR_NUM_THREADS",  # NumExpr
     "VECLIB_MAXIMUM_THREADS",  # Accelerate
+    "NUMBA_NUM_THREADS",  # Numba
 ]
 
 

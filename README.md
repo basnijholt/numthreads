@@ -9,7 +9,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/basnijholt/numthreads)](https://github.com/basnijholt/numthreads)
 [![Documentation](https://readthedocs.org/projects/numthreads/badge/?version=latest)](https://numthreads.readthedocs.io/)
 
-`numthreads` is a really tiny and simple Python package designed to set the number of threads for various computing libraries including OpenBLAS, Intel's Math Kernel Library (MKL), OpenMP, NumExpr, and Accelerate.
+`numthreads` is a really tiny and simple Python package designed to set the number of threads for various computing libraries including OpenBLAS, Intel's Math Kernel Library (MKL), OpenMP, NumExpr, Accelerate, and Numba.
 The number of threads can be set via the command line or in Python code.
 The performance of many numerical algorithms varies significantly based on the number of threads employed.
 While increasing the number of threads can often accelerate these algorithms, it's not always the case.
@@ -73,6 +73,7 @@ This will set the number of threads using the following environment variables:
 - OpenMP (via `OMP_NUM_THREADS`)
 - NumExpr (via `NUMEXPR_NUM_THREADS`)
 - Accelerate (via `VECLIB_MAXIMUM_THREADS`)
+- Numba (via `NUMBA_NUM_THREADS`)
 
 or use it as a context manager:
 
