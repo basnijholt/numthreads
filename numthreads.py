@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
     import pytest
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 THREAD_CONTROL_ENV_VARS = [
     "OPENBLAS_NUM_THREADS",  # OpenBLAS
